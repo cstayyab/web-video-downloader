@@ -1,13 +1,14 @@
 import getInfo from "fb-video-downloader";
 
 module.exports =  async (req, res) => {
-  res.json({online: true});
-  // if(!req.body.videoId) {
-  //   res.status(200).json({
-  //     error: "Video ID not supplied"
-  //   });
-  //   return 200;
-  // }
+  if(!req.query.videoId) {
+    res.json({
+      error: "Video ID not supplied"
+    });
+
+  } else {
+    res.json({online: true});
+  }
   // if(!req.body.user) {
   //   res.status(200).json({
   //     error: "Username not supplied"
