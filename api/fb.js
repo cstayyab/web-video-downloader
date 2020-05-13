@@ -7,7 +7,7 @@ module.exports =  async (req, res) => {
     });
 
   } else {
-    res.json({online: true});
+    res.json({online: true, videoId: req.query.videoId});
   }
   // if(!req.body.user) {
   //   res.status(200).json({
