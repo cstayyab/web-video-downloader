@@ -9,8 +9,11 @@
 ### Intagram Post Download (`https://web-video-downloader.now.sh/api/ig?postId=<Instagram Post Id>`)
 
 **Sample URL:** https://www.instagram.com/p/B_8Pt4LAxzg/
+
 **postID:** B_8Pt4LAxzg
+
 **Sample Request:** https://web-video-downloader.now.sh/api/ig?postId=B_8Pt4LAxzg
+
 **Sample Response:**
 ```
 [
