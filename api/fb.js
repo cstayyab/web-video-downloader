@@ -12,7 +12,7 @@ module.exports =  async (req, res) => {
     });
   }else {
     //res.json({online: true, videoId: req.query.videoId, user: req.query.user});
-    res.json(await getInfo(`https://www.facebook.com/${req.query.user}/videos/${req.body.videoId}/`));
+    res.json(await getInfo(`https://www.facebook.com/${req.query.user}/videos/${req.query.videoId}/`));
   }
   
   // const v = {success: true }//await getInfo(`https://www.facebook.com/${req.body.user}/videos/${req.body.videoId}/`);
