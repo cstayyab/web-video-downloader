@@ -2,22 +2,27 @@
 
 ## Usage
 
-### Facebook Video Download (`/api/fb?videoId=<Facebook-Video-ID>`)
-* Success if "error" key is null
+### Facebook Video Download (`https://web-video-downloader.now.sh/api/fb?videoId=<Facebook-Video-ID>`)
 
-Sample Response:
-```
-{
-  "download": {
-    "hd": "https://z-p3-video-sin6-1.xx.fbcdn.net/v/t42.9040-2/10000000_248760712335204_5287801269107294208_n.mp4?_nc_cat=0&efg=eyJ2ZW5jb2RlX3RhZyI6InN2ZV9oZCJ9&oh=a923ee2a57d80acf79b0d7ae8e01422e&oe=5AE5876E",
-    "sd": "https://z-p3-video-sin6-1.xx.fbcdn.net/v/t42.9040-2/31217722_170271057129759_3073047764553170944_n.mp4?_nc_cat=0&efg=eyJ2ZW5jb2RlX3RhZyI6InN2ZV9zZCJ9&oh=5ebe9fc0d540e411b5811d07bb863e45&oe=5AE570E2"
-  },
-  "thumb": "https://graph.facebook.com/2123584921233057/picture",
-  "title": "WeLax Video - Tao cũng cạn lời với bà này luôn. Người Tây...",
-  "error": null
-}
-```
+*In Progress*
 
+### Intagram Post Download (`https://web-video-downloader.now.sh/api/ig?postId=<Instagram Post Id>`)
+
+**Sample URL:** https://www.instagram.com/p/B_8Pt4LAxzg/
+**postID:** B_8Pt4LAxzg
+**Sample Request:** https://web-video-downloader.now.sh/api/ig?postId=B_8Pt4LAxzg
+**Sample Response:**
+```
+[
+  {
+    "image": "https://scontent-sjc3-1.cdninstagram.com/v/t51.2885-15/e35/96845689_1352134798309155_8685046802554592310_n.jpg?_nc_ht=scontent-sjc3-1.cdninstagram.com&_nc_cat=1&_nc_ohc=J2FyRImn74EAX-Xf5Ne&oh=f1b4eb218a6e50581d253916dc880a1b&oe=5EBECAEA",
+    "video": "https://scontent-sjc3-1.cdninstagram.com/v/t50.2886-16/96405872_123440705999741_6166829985397212170_n.mp4?_nc_ht=scontent-sjc3-1.cdninstagram.com&_nc_cat=105&_nc_ohc=TmEpOjGtzzQAX-xmviQ&oe=5EBEADE6&oh=08aa5334656606d064ae3bc235c2c5e7"
+  }
+]
+```
+**Response Explanation:** Here each item in array represent one page of post. If Post contains video then "`image`" key will contain thumbnail of that video and "`video`" key will contain direct link to the video
+
+**Error:** If there is an error the "`error`" key will be returned instead of `Array`
 
 
 ## License
