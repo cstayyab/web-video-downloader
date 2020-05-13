@@ -17,12 +17,12 @@ module.exports =  async (req, res) => {
     const low = await fbvid.low(video);
     const high = await fbvid.high(video);
     var response = {}
-    if(!validURL.isUri(low)) {
+    if(validURL.isUri(low)) {
       response.low = low;
     } else {
       response.lowError = low;
     }
-    if(!validURL.isUri(high)) {
+    if(validURL.isUri(high)) {
       response.high = high;
     } else {
       response.highError = high;
