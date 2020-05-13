@@ -1,4 +1,4 @@
-//import getInfo from "fb-video-downloader";
+import getInfo from "fb-video-downloader";
 
 module.exports =  async (req, res) => {
   res.json({online: true});
