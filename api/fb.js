@@ -7,6 +7,12 @@ export default async (req, res) => {
     });
     return;
   }
-  const v = await getInfo(`https://www.facebook.com/welaxvideo/videos/${req.body.videoId}/`);
+  if(!req.body.user) {
+    res.json({
+      error: "Username not supplied"
+    });
+    return;
+  }
+  const v = await getInfo(`https://www.facebook.com/${req.body.user}/videos/${req.body.videoId}/`);
   res.json(v);
 };
