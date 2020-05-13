@@ -1,4 +1,4 @@
-import fbDownloader from "fb-video-downloader";
+import  fbvid from 'fbvideos';
 
 module.exports =  async (req, res) => {
   if(!req.query.videoId) {
@@ -12,7 +12,13 @@ module.exports =  async (req, res) => {
     });
   }else {
     //res.json({online: true, videoId: req.query.videoId, user: req.query.user});
-    res.json(await fbDownloader.getInfo(`https://www.facebook.com/${req.query.user}/videos/${req.query.videoId}/`));
+    video = `https://www.facebook.com/${req.query.user}/videos/${req.query.videoId}/`;
+    low = await fbvid.low(video);
+    hight = await fbvid.high(video);
+    res.json({
+      low: low,
+      high: high
+    });
   }
   
   // const v = {success: true }//await getInfo(`https://www.facebook.com/${req.body.user}/videos/${req.body.videoId}/`);
