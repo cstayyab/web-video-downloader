@@ -20,7 +20,7 @@
   }
 ]
 ```
-**Response Explanation:** Here each item in array represent one page of post. If Post contains video then "`image`" key will contain thumbnail of that video and "`video`" key will contain direct link to the video
+**Response Explanation:** Here each item in array represent one page of post. If Page contains video then "`image`" key will contain thumbnail of that video and "`video`" key will contain direct link to the video. Similarly, if the page of the Post contains and image then only "`image`" key will be there in that element of the array which will provide direct link of that image.
 
 **Error:** If there is an error the "`error`" key will be returned instead of `Array`
 
