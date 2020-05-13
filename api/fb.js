@@ -1,4 +1,4 @@
-import getInfo from "fb-video-downloader";
+//import getInfo from "fb-video-downloader";
 
 export default async (req, res) => {
   if(!req.body.videoId) {
@@ -13,6 +13,6 @@ export default async (req, res) => {
     });
     return;
   }
-  const v = await getInfo(`https://www.facebook.com/${req.body.user}/videos/${req.body.videoId}/`);
+  const v = {success: true }//await getInfo(`https://www.facebook.com/${req.body.user}/videos/${req.body.videoId}/`);
   res.status(200).json(v);
 };
