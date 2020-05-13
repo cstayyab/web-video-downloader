@@ -10,6 +10,6 @@
   "author": "cstayyab <cstayyab@gmail.com> (https://cstayyab.com)",
   "license": "MIT",
   "dependencies": {
-    "fb-video-downloader": "^1.0.3"
+    
   }
 }
