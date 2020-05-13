@@ -1,6 +1,7 @@
 //import getInfo from "fb-video-downloader";
 
-export default async (req, res) => {
+module.exports =  async (req, res) => {
+
   if(!req.body.videoId) {
     res.status(200).json({
       error: "Video ID not supplied"
