@@ -1,4 +1,5 @@
 import  fbvid from 'fbvideos';
+import validURL from 'valid-url';
 
 module.exports =  async (req, res) => {
   if(!req.query.videoId) {
@@ -15,10 +16,18 @@ module.exports =  async (req, res) => {
     const video = `https://www.facebook.com/${req.query.user}/videos/${req.query.videoId}/`;
     const low = await fbvid.low(video);
     const high = await fbvid.high(video);
-    res.json({
-      low: low,
-      high: high
-    });
+    var response = {}
+    if(!validURL.isUri(low)) {
+      response.low = low;
+    } else {
+      response.lowError = low;
+    }
+    if(!validURL.isUri(high)) {
+      response.high = high;
+    } else {
+      response.highError = high;
+    }
+    res.json(response);
   }
   
   // const v = {success: true }//await getInfo(`https://www.facebook.com/${req.body.user}/videos/${req.body.videoId}/`);

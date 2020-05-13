@@ -11,6 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "fbvideos": "^1.0.2",
+    "valid-url": "^1.0.9",
     "video-url-link": "^0.1.4"
   }
 }
