@@ -12,9 +12,9 @@ module.exports =  async (req, res) => {
     });
   }else {
     //res.json({online: true, videoId: req.query.videoId, user: req.query.user});
-    video = `https://www.facebook.com/${req.query.user}/videos/${req.query.videoId}/`;
-    low = await fbvid.low(video);
-    hight = await fbvid.high(video);
+    const video = `https://www.facebook.com/${req.query.user}/videos/${req.query.videoId}/`;
+    const low = await fbvid.low(video);
+    const high = await fbvid.high(video);
     res.json({
       low: low,
       high: high
