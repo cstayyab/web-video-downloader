@@ -1,0 +1,15 @@
+{
+  "name": "web-video-downloader",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "cstayyab <cstayyab@gmail.com> (https://cstayyab.com)",
+  "license": "MIT",
+  "dependencies": {
+    "fb-video-downloader": "^1.0.3"
+  }
+}
