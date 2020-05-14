@@ -15,8 +15,8 @@ module.exports =  async (req, res) => {
     });
   }else {
     const video = `https://www.facebook.com/${req.query.user}/videos/${req.query.videoId}/`;
-    const response = await fetch(url);
-    const html = await response.text();
+    const res = await fetch(url);
+    const html = await res.text();
     const doc = domino.createWindow(html).document;
     const metadata = pageMetadataParser.getMetadata(doc, url);
     const title  = metadata.title ? metadata.title : "Untitled";
