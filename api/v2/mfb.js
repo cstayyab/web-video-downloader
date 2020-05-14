@@ -33,7 +33,7 @@ module.exports = async (req, res) => {
         }
         catch (ex) {
             res.json({
-                "error": "Error while fetching video!"
+                "error": "Error while fetching video!" + ex,
             });
         }
 
