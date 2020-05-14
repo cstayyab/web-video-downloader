@@ -1,6 +1,7 @@
 const domino = require('domino');
 const fetch = require('node-fetch');
 const uri = require('uri-parse');
+const pageMetadataParser = require("page-metadata-parser");
 
 module.exports = async (req, res) => {
     if (!req.query.story_fbid) {
