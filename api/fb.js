@@ -15,12 +15,12 @@ module.exports =  async (req, res) => {
     });
   }else {
     const video = `https://www.facebook.com/${req.query.user}/videos/${req.query.videoId}/`;
-    const res = await fetch(video);
-    const html = await res.text();
+    const resp = await fetch(video);
+    const html = await resp.text();
     const doc = domino.createWindow(html).document;
     const metadata = pageMetadataParser.getMetadata(doc, video);
-    const title  = metadata.title ? metadata.title : "Untitled";
-    const description = metadata.description ? metadata.description : "No Description";
+    const title  = metadata.title // ? metadata.title : "Untitled";
+    const description = metadata.description // ? metadata.description : "No Description";
     const thumbnail = metadata.image;
     const low = await fbvid.low(video);
     const high = await fbvid.high(video);
