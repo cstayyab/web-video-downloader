@@ -15,6 +15,7 @@
     "node-fetch": "^2.6.0",
     "page-metadata-parser": "^1.1.4",
     "uri-parse": "0.0.2",
+    "urldecode": "^1.0.1",
     "video-url-link": "^0.1.4"
   }
 }

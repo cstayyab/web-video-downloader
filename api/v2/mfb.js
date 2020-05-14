@@ -1,6 +1,7 @@
 const domino = require('domino');
 const fetch = require('node-fetch');
-const uri = require('uri-parse');
+const URI = require('uri-parse');
+const urlDecode = require('urldecode')
 const pageMetadataParser = require("page-metadata-parser");
 
 module.exports = async (req, res) => {
@@ -20,7 +21,9 @@ module.exports = async (req, res) => {
             const html = await resp.text();
             const doc = domino.createWindow(html).document;
             const v = doc.querySelector("div.cd a");
-            const videoUrl = "https://mobile.facebook.com" + v.getAttribute("href");
+            var videoUrl = "https://mobile.facebook.com" + v.getAttribute("href");
+            const uri = new URI(videoUrl);
+            videoUrl = urlDecode(uri.query.src);
             const thumbUrl = doc.querySelector("div.cd img").getAttribute("src");
             const metadata = pageMetadataParser.getMetadata(doc, url);
             const title = metadata.title ? metadata.title : "Untitled";
