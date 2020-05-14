@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
 
     } else {
         const igURL = `https://www.instagram.com/p/${req.query.postId}`;
-        videoUrlLink.instagram.getInfo(igURL, (error, info) => {
+        videoUrlLink.instagram.getInfo(igURL, async (error, info) => {
             if (error) {
                 if (error === {}) {
                     res.json({ error: "Invalid Post ID" });
