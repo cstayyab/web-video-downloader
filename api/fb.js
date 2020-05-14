@@ -18,7 +18,7 @@ module.exports =  async (req, res) => {
     const res = await fetch(video);
     const html = await res.text();
     const doc = domino.createWindow(html).document;
-    const metadata = pageMetadataParser.getMetadata(doc, url);
+    const metadata = pageMetadataParser.getMetadata(doc, video);
     const title  = metadata.title ? metadata.title : "Untitled";
     const description = metadata.description ? metadata.description : "No Description";
     const thumbnail = metadata.image;
