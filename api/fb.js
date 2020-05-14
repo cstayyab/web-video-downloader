@@ -15,7 +15,7 @@ module.exports =  async (req, res) => {
     });
   }else {
     const video = `https://www.facebook.com/${req.query.user}/videos/${req.query.videoId}/`;
-    const res = await fetch(url);
+    const res = await fetch(video);
     const html = await res.text();
     const doc = domino.createWindow(html).document;
     const metadata = pageMetadataParser.getMetadata(doc, url);
