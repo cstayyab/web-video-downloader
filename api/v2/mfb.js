@@ -28,7 +28,7 @@ module.exports = async (req, res) => {
             return res.json({
                 title: title,
                 description: description,
-                video, videoUrl,
+                video: videoUrl,
                 thumbnail: thumbUrl
             });
         }
