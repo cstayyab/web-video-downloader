@@ -10,7 +10,10 @@
   "author": "cstayyab <cstayyab@gmail.com> (https://cstayyab.com)",
   "license": "MIT",
   "dependencies": {
+    "domino": "^2.1.5",
     "fbvideos": "^1.0.2",
+    "node-fetch": "^2.6.0",
+    "page-metadata-parser": "^1.1.4",
     "video-url-link": "^0.1.4"
   }
 }

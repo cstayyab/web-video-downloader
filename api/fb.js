@@ -1,4 +1,7 @@
 import  fbvid from 'fbvideos';
+var pageMetadataParser = require("page-metadata-parser")
+var fetch = require('node-fetch');
+var domino = require('domino');
 
 module.exports =  async (req, res) => {
   if(!req.query.videoId) {
@@ -12,6 +15,13 @@ module.exports =  async (req, res) => {
     });
   }else {
     const video = `https://www.facebook.com/${req.query.user}/videos/${req.query.videoId}/`;
+    const response = await fetch(url);
+    const html = await response.text();
+    const doc = domino.createWindow(html).document;
+    const metadata = pageMetadataParser.getMetadata(doc, url);
+    const title  = metadata.title ? metadata.title : "Untitled";
+    const description = metadata.description ? metadata.description : "No Description";
+    const thumbnail = metadata.image;
     const low = await fbvid.low(video);
     const high = await fbvid.high(video);
     var response = {}
@@ -24,6 +34,11 @@ module.exports =  async (req, res) => {
       response.high = high;
     } else {
       response.high = {error: high};
+    }
+    if(!(response.low.error && response.high.error)) {
+      response.title = title;
+      res.description = description;
+      res.thumbnail = thumbnail;
     }
     res.json(response);
   }
