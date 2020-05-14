@@ -1,4 +1,4 @@
-import  fbvid from 'fbvideos';
+var fbvid = require('fbvideos');
 var pageMetadataParser = require("page-metadata-parser")
 var fetch = require('node-fetch');
 var domino = require('domino');
