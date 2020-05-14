@@ -37,8 +37,8 @@ module.exports =  async (req, res) => {
     }
     if(!(response.low.error && response.high.error)) {
       response.title = title;
-      res.description = description;
-      res.thumbnail = thumbnail;
+      response.description = description;
+      response.thumbnail = thumbnail;
     }
     res.json(response);
   }
