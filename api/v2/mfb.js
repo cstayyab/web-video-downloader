@@ -20,7 +20,12 @@ module.exports = async (req, res) => {
             const resp = await fetch(url);
             const html = await resp.text();
             const doc = domino.createWindow(html).document;
-            const v = doc.querySelector("div.cd a");
+            var v = doc.querySelector("div.cd a");
+            var t = doc.querySelector("div.cd img")
+            if(v == undefined) {
+                v = doc.querySelector("div.cn a");
+                t = doc.querySelector("div.cn img")
+            }
             var videoUrl = "";
             try {
                 videoUrl = "https://mobile.facebook.com" + v.getAttribute("href");
@@ -31,7 +36,7 @@ module.exports = async (req, res) => {
             }
             var thumbUrl = "";
             try {
-                thumbUrl = doc.querySelector("div.cd img").getAttribute("src");
+                thumbUrl = t.getAttribute("src");
             } catch (ex) {
                 thumbUrl = "";
             }
