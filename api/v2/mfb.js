@@ -26,8 +26,6 @@ module.exports = async (req, res) => {
             if(v == undefined) {
                 v = doc.querySelector("div.cn a");
                 t = doc.querySelector("div.cn img")
-                checkMetaType = false;
-
             }
             var videoUrl = "";
             try {
@@ -45,7 +43,7 @@ module.exports = async (req, res) => {
             }
             const metadata = pageMetadataParser.getMetadata(doc, url);
 
-            if (checkMetaType && (metadata.type !== "video")) {
+            if (videoUrl == "") {
                 return res.json({
                     "error": "This Facebook Post does not contain a video"
                 });
