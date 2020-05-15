@@ -26,6 +26,11 @@ module.exports = async (req, res) => {
             videoUrl = urlDecode(uri.query.src);
             const thumbUrl = doc.querySelector("div.cd img").getAttribute("src");
             const metadata = pageMetadataParser.getMetadata(doc, url);
+            if(metadata.type !== "video") {
+                return res.json({
+                    "error": "This Facebook Post does not contain a video"
+                });
+            }
             const title = metadata.title ? metadata.title : "Untitled";
             const description = metadata.description ? metadata.description : "No Description";
             return res.json({
