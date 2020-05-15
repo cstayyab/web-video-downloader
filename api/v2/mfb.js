@@ -20,15 +20,15 @@ module.exports = async (req, res) => {
             const resp = await fetch(url);
             const html = await resp.text();
             const doc = domino.createWindow(html).document;
-            // var v = doc.querySelector("div.cd a");
-            // var t = doc.querySelector("div.cd img")
-            // var checkMetaType = true;
-            // if(v == undefined) {
-            //     v = doc.querySelector("div.cn a");
-            //     t = doc.querySelector("div.cn img")
-            // }
-            var v = doc.querySelector("div[class^=c] a[aria-label='Watch video']");
-            var t = doc.querySelector("div[class^=c] a[aria-label='Watch video'] > div > img")
+            var v = doc.querySelector("div.cd a");
+            var t = doc.querySelector("div.cd img")
+            var checkMetaType = true;
+            if(v == undefined) {
+                v = doc.querySelector("div.cn a");
+                t = doc.querySelector("div.cn img")
+            }
+            // var v = doc.querySelector("div[class^=c] a[aria-label='Watch video']");
+            // var t = doc.querySelector("div[class^=c] a[aria-label='Watch video'] > div > img")
             var videoUrl = "";
             try {
                 videoUrl = "https://mobile.facebook.com" + v.getAttribute("href");
