@@ -21,12 +21,17 @@ module.exports = async (req, res) => {
             const html = await resp.text();
             const doc = domino.createWindow(html).document;
             const v = doc.querySelector("div.cd a");
-            var videoUrl = "https://mobile.facebook.com" + v.getAttribute("href");
-            const uri = new URI(videoUrl);
-            videoUrl = urlDecode(uri.query.src);
+            var videoUrl = "";
+            try {
+                videoUrl = "https://mobile.facebook.com" + v.getAttribute("href");
+                const uri = new URI(videoUrl);
+                videoUrl = urlDecode(uri.query.src);
+            } catch (ex) {
+                videoUrl = "";
+            }
             const thumbUrl = doc.querySelector("div.cd img").getAttribute("src");
             const metadata = pageMetadataParser.getMetadata(doc, url);
-            if(metadata.type !== "video") {
+            if (metadata.type !== "video") {
                 return res.json({
                     "error": "This Facebook Post does not contain a video"
                 });
