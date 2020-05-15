@@ -22,9 +22,12 @@ module.exports = async (req, res) => {
             const doc = domino.createWindow(html).document;
             var v = doc.querySelector("div.cd a");
             var t = doc.querySelector("div.cd img")
+            var noMetaType = false;
             if(v == undefined) {
                 v = doc.querySelector("div.cn a");
                 t = doc.querySelector("div.cn img")
+                noMetaType = true;
+
             }
             var videoUrl = "";
             try {
@@ -41,7 +44,7 @@ module.exports = async (req, res) => {
                 thumbUrl = "";
             }
             const metadata = pageMetadataParser.getMetadata(doc, url);
-            if (metadata.type !== "video") {
+            if (!noMetaType && (metadata.type !== "video")) {
                 return res.json({
                     "error": "This Facebook Post does not contain a video"
                 });
