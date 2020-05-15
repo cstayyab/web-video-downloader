@@ -29,7 +29,12 @@ module.exports = async (req, res) => {
             } catch (ex) {
                 videoUrl = "";
             }
-            const thumbUrl = doc.querySelector("div.cd img").getAttribute("src");
+            var thumbUrl = "";
+            try {
+                thumbUrl = doc.querySelector("div.cd img").getAttribute("src");
+            } catch (ex) {
+                thumbUrl = "";
+            }
             const metadata = pageMetadataParser.getMetadata(doc, url);
             if (metadata.type !== "video") {
                 return res.json({
