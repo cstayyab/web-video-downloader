@@ -18,9 +18,9 @@ exports.getInfo = (url, options, callback) => {
             callback(error);
         } else {
             if (response.statusCode == 200 && body) {
-                console.log(body)
+                console.log("Body: " , body)
                 const data = JSON.parse(body.match(/<script type="text\/javascript">window._sharedData = (.*);<\/script>/)[1]) || {};
-                console.log(data)
+                console.log("Data: " , data)
                 const type = data.entry_data.PostPage[0].graphql.shortcode_media.__typename;
                 let info = {};
                 if (type === 'GraphImage') {
